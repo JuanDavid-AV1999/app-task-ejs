@@ -1,7 +1,7 @@
 const { sep } = require('path');
 
-const getBaseDir = () => {
-    const baseDir = __dirname.split(sep);
+const getBaseDir = (dir) => {
+    const baseDir = dir.split(sep);
     baseDir.pop();
     return baseDir.join(sep);
 }
