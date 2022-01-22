@@ -3,6 +3,8 @@ const bodyParse = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 
+const { notFoundMiddleware, errorHandlerMiddleware } = require('../middlewares/app.middlewares');
+
 const routes = require('../routes/app.routes');
 
 const { getBaseDir } = require('../util/index');
@@ -17,14 +19,18 @@ app.set('view engine', 'ejs');
 
 app.set('views', path.join(baseDir, 'views'));
 
-app.use(morgan('tiny'));
-
 app.use(bodyParse.json());
 
 app.use(bodyParse.urlencoded({ extended: false }));
 
+app.use(morgan('tiny'));
+
+app.use('/static', express.static(path.join(getBaseDir(baseDir), 'assets'), { etag: false }));
+
 app.use('/app', routes);
 
-app.use('/static', express.static(path.join(getBaseDir(baseDir), 'assets')));
+app.use(notFoundMiddleware);
+
+app.use(errorHandlerMiddleware);
 
 module.exports = app;

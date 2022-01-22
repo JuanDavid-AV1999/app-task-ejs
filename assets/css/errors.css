@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    padding: 40px;
+    background: #eeeeee;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.error-title {
+    font-size: 3.1em;
+    font-weight: 400;
+    margin-top: 40px;
+    position: relative;
+    animation: appear 0.5s ease 0.2s normal forwards;
+    opacity: 0;
+}
+
+.error-message {
+    font-size: 2.5em;
+    font-weight: 100;
+    margin-top: 20px;
+    position: relative;
+    animation: appear 0.4s ease 0.5s normal forwards;
+    opacity: 0;
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(-100%);
+    } to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

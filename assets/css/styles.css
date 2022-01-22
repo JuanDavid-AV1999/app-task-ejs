@@ -1,5 +1,6 @@
 :root {
     --primary-color: #0069D9;
+    --primary-color-dark: #0056b3;
 }
 
 * {
@@ -27,13 +28,29 @@ body {
 }
 
 .nav-brand {
+    display: inline-block;
     font-size: 2em;
     color: var(--primary-color);
     text-decoration: none;
+    position: relative;
+    z-index: 1;
 }
 
-.nav-brand:hover {
-    text-decoration: underline;
+.nav-brand::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: 4%;
+    left: 0;
+    background: var(--primary-color);
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+
+.nav-brand:hover::after {
+    
 }
 
 .btn {
@@ -45,9 +62,23 @@ body {
     outline: none;
     font-size: 1em;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.btn:hover {
-    cursor: pointer;
-    opacity: 0.8;
+.btn::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color-dark);
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn:hover::after {
+    left: 0;
 }

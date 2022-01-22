@@ -8,4 +8,4 @@ const getBaseDir = (dir) => {
 
 module.exports = {
     getBaseDir
-}
+};
