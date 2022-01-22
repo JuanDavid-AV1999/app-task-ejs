@@ -16,4 +16,8 @@ router.get('/create-task', (_req, res) => {
     });
 });
 
+router.get('/testing', (req, res) => {
+    res.send({ testing: true });
+});
+
 module.exports = router;
