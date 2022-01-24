@@ -1,4 +1,6 @@
 <nav class="nav-main">
     <a href="/app/" class="nav-brand">Express Task App</a>
-    <a href="create-task" class="btn">Create New Taks</a>
+    <% if(showCreateBtn) { %>
+        <a href="/app/create-task" class="btn">Create New Taks</a>
+    <% } %>
 </nav>

@@ -11,7 +11,9 @@
     <section class="container">
         <%- include('partials/header') -%>
     
-        <%- include(`pages/${page}`) -%>
+        <main class="main-content">
+            <%- include(`pages/${page}`) -%>
+        </main>
 
         <%- include('partials/footer') -%>
         <script src="/static/js/main.js"></script>
