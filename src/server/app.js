@@ -12,7 +12,7 @@ const baseDir = getBaseDir(__dirname);
 
 app.set('port', 3000);
 app.set('view engine', 'ejs');
-app.set('views', path.join(baseDir, 'views'));
+app.set('views', path.join(getBaseDir(baseDir), 'views'));
 
 app.use(morgan('tiny'));
 app.use(bodyParse.json());
