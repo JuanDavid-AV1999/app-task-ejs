@@ -1,12 +1,16 @@
 const { Router } = require('express');
+const { getAllTasks } = require('../controller/task-controller');
 
 const router = Router();
 
-router.get('/', (_req, res) => {
+router.get('/', async (_req, res) => {
+    // throw new Error('Holo');
+    const data = await getAllTasks();
     res.render('template', {
         title: 'Task App',
         page: 'index',
-        showCreateBtn: true
+        showCreateBtn: true,
+        payload: data
     });
 });
 

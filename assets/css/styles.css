@@ -12,17 +12,24 @@
 body {
     width: 100%;
     height: 100vh;
+    min-height: 100vh;
     font-family: sans-serif;
+    background: #f0f0f0;
 }
 
 .container {
-    width: 70%;
+    width: 40%;
     height: 100%;
     margin: 0 auto;
+    padding: 10px 30px;
     display: flex;
     flex-direction: column;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.5);
+    background: #ffffff;
 }
 
+
+/* Header */
 .nav-main {
     width: 100%;
     height: 80px;
@@ -55,6 +62,8 @@ body {
 .nav-brand:hover::after {
     width: 100%;
 }
+
+/* Main Styles */
 
 .btn {
     padding: 12px;
@@ -93,6 +102,14 @@ body {
     overflow-y: auto;
 }
 
+.task-container {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Task Form */
+
 .task-form {
     width: 70%;
     margin: 0 auto;
@@ -105,6 +122,8 @@ body {
     margin-bottom: 20px;
 }
 
+/* Footer */
+
 .footer {
     width: 100%;
     height: 50px;
@@ -115,4 +134,38 @@ body {
 
 .footer-text {
     font-size: 1.2em;
+}
+
+/* Error Page */
+
+.error-container {
+    width: 100%;
+    text-align: center;
+}
+
+.error-title {
+    font-size: 15em;
+    font-weight: 100;
+    padding-top: 40px;
+    position: relative;
+    animation: appear 0.5s ease 0.2s normal forwards;
+    opacity: 0;
+}
+
+.error-message {
+    font-size: 2.5em;
+    font-weight: 100;
+    margin-top: 20px;
+    position: relative;
+    animation: appear 0.4s ease 0.5s normal forwards;
+    opacity: 0;
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(-100%);
+    } to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

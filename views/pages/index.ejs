@@ -1,1 +1,13 @@
-<h1>holo</h1>
+<section class="task-container">
+    <% payload.forEach((item) => { %>
+        <div class="task-card">
+            <div class="task-header">
+                <h2 class="title"><%= item.title %></h2>
+            </div>
+            <div class="task-body">
+                <p><%= item.task; %></p>
+                <input type="text">
+            </div>
+        </div>
+    <% }); %>
+</section>

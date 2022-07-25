@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParse = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const routes = require('../routes/app.routes');
@@ -15,8 +14,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(getBaseDir(baseDir), 'views'));
 
 app.use(morgan('tiny'));
-app.use(bodyParse.json());
-app.use(bodyParse.urlencoded({ extended: false }));
+app.use(express.json());
 app.use('/static', express.static(path.join(getBaseDir(baseDir), 'assets'), { etag: false }));
 
 app.use('/app', routes);
