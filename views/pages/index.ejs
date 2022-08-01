@@ -2,12 +2,17 @@
     <% payload.forEach((item) => { %>
         <div class="task-card">
             <div class="task-header">
-                <h2 class="title"><%= item.title %></h2>
+                <h2 class="<%= item.state === 'C' ? 'task-completed' : '' %>" ><%= item.title %></h2>
+                <div class="points-container" id="points-btn">
+                    <i class="points-icon"></i>
+                </div>
             </div>
             <div class="task-body">
-                <p><%= item.task; %></p>
-                <input type="text">
+                <p class="<%= item.state === 'C' ? 'task-completed' : '' %>"><%= item.description %></p>
+            </div>
+            <div class="task-footer">
+                <button id="mark-btn" class="btn" data-task-id="<%= item.rowid %>"><%= item.state === 'C' ? 'dismark completed' : 'mark completed' %></button>
             </div>
         </div>
-    <% }); %>
+    <% }) %>
 </section>
