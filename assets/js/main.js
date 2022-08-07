@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const parentElemet = getParentNode(target);
             const elementStyles = window.getComputedStyle(parentElemet);
             const currentHeight = parseInt(elementStyles.getPropertyValue('max-height').replace('px', ''));
-            parentElemet.style.maxHeight = `${currentHeight === 42 ? parentElemet.scrollHeight : 42}px`;
+            parentElemet.style.maxHeight = `${currentHeight === 60 ? parentElemet.scrollHeight : 60}px`;
         });
     });
 

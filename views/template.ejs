@@ -8,15 +8,17 @@
     <title><%= title %></title>
 </head>
 <body>
-    <section class="container">
-        <%- include('partials/header') -%>
+    <main class="main-container">
+        <section class="container">
+            <%- include('partials/header') -%>
+        
+            <section class="main-content block-container">
+                <%- include(`pages/${page}`) -%>
+            </section>
     
-        <main class="main-content">
-            <%- include(`pages/${page}`) -%>
-        </main>
-
-        <%- include('partials/footer') -%>
+            <%- include('partials/footer') -%>
+        </section>
         <script src="/static/js/main.js"></script>
-    </section>
+    </main>
 </body>
 </html>
