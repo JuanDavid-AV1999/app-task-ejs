@@ -1,28 +1,31 @@
 const { Router } = require('express');
-const { getAllTasks } = require('../controller/task-controller');
+const { getAllTasks, updateTaskState } = require('../controller/task-controller');
 
 const router = Router();
 
 router.get('/', async (_req, res) => {
     const data = await getAllTasks();
     res.render('template', {
-        title: 'Task App',
+        title: 'Express task app',
         page: 'index',
-        showCreateBtn: true,
+        showBtn: 'created',
         payload: data
     });
 });
 
 router.get('/create-task', (_req, res) => {
     res.render('template', {
-        title: 'Create Task',
+        title: 'Create task',
         page: 'create-task',
-        showCreateBtn: false
+        showBtn: 'close'
     });
 });
 
-router.get('/testing', (_req, res) => {
-    res.send({ testing: true });
+router.post('/check-task', async (req, res) => {
+    const { id, state } = req.body;
+    const data = await updateTaskState(id, state);
+
+    res.status(200).send(JSON.stringify({ code: 200, error: false, payload: data }));
 });
 
 module.exports = router;

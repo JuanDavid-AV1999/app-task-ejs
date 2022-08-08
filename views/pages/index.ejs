@@ -3,9 +3,18 @@
         <div class="task-card">
             <div class="task-header">
                 <h2 class="<%= item.state === 'C' ? 'task-completed' : '' %>" ><%= item.title %></h2>
-                <div class="points-container" id="points-btn">
-                    <i class="points-icon"></i>
+                <div class="task-actions">
+                    <div class="btn bg-gray" id="check-btn" data-id="<%= item.rowid %>" data-state="<%= item.state %>">
+                        <i class="done-icon <%= item.state !== 'C' ? '' : 'task-done' %>"></i>
+                    </div>
+                    <div class="btn bg-gray" id="edit-btn">
+                        <i class="edit-icon"></i>
+                    </div>
+                    <div class="btn bg-gray" id="points-btn">
+                        <i class="points-icon"></i>
+                    </div>
                 </div>
+     
             </div>
             <div class="task-body">
                 <p class="<%= item.state === 'C' ? 'task-completed' : '' %>"><%= item.description %></p>
