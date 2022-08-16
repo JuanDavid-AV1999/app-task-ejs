@@ -3,7 +3,7 @@
     <% if(showBtn) { %>
         <% const url = showBtn === 'created' ? '/app/create-task' : '/app/' %>
         <a href="<%= url %>" class="btn <%= showBtn !== 'close' ? 'bg-primary' : 'bg-secondary' %>">
-            <i class="cross-icon <%= showBtn === 'close' ? 'btn-header-animated' : '' %>"></i>
+            <i class="cross-icon <%= showBtn === 'close' ? 'cross-close' : '' %>"></i>
         </a>
     <% } %>
 </nav>

@@ -1,9 +1,15 @@
 <section>
-    <form action="" method="POST" class="task-form">
-        <label for="task-title">Task Title:</label>
-        <input type="text" name="task-title" id="task-title">
-        <label for="task-description">Description:</label>
-        <textarea name="task-description" id="task-description"></textarea>
-        <input type="submit" value="Create">
+    <form action="" method="POST" class="task-form" id="create-form">
+        <div class="form-control">
+            <label for="task-title">Task Title:</label>
+            <input type="text" name="title" id="task-title" required>
+            <span></span>
+        </div>
+        <div class="form-control area">
+            <label for="task-description">Description:</label>
+            <textarea name="description" id="task-description" required></textarea>
+            <span></span>
+        </div>
+        <button class="btn bg-primary">+</button>
     </form>
 </section>

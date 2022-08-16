@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getAllTasks, updateTaskState } = require('../controller/task-controller');
+const { getAllTasks, updateTaskState, createNewTask } = require('../controller/task-controller');
 
 const router = Router();
 
@@ -19,6 +19,13 @@ router.get('/create-task', (_req, res) => {
         page: 'create-task',
         showBtn: 'close'
     });
+});
+
+router.post('/create-task', async (req, res) => {
+    const { title, description} = req.body;
+    console.log(title, description)
+    const t = await createNewTask(title, description);
+    res.status(200).json({ code: 200, error: false, payload: t });
 });
 
 router.post('/check-task', async (req, res) => {
