@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 const { join } = require('path');
-const { getBaseDir } = require('../util');
+const { getBaseDir } = require('../helpers');
 
 const DBConnection = new Sequelize({
     storage: join(getBaseDir(), 'SQLiteDB.db'),
@@ -8,15 +8,19 @@ const DBConnection = new Sequelize({
     dialect: 'sqlite'
 });
 
+const DBlisen = async () => {
+    try {
+        await DBConnection.authenticate();
+        console.log('Database connected success');
+    } catch (ex) { throw new Error(ex) }
+}
+
+const close = () => {
+    DBConnection.close()
+}
+
 module.exports = {
     DBConnection: () => DBConnection,
-    DBlisen: async () => {
-        try {
-            await DBConnection.authenticate();
-            console.log('batabase connected success');
-        } catch (ex) { throw new Error(ex) }
-    },
-    close: () => {
-        DBConnection.close();
-    }
+    DBlisen: async () => await DBlisen(),
+    close
 };

@@ -121,109 +121,20 @@ body {
     left: 0;
 }
 
-.cross-icon, .cross-icon::before {
-    content: "";
-    width: 2px;
-    height: 10px;
-    background: #ffffff;
-    position: absolute;
-    border-radius: 10px;
+.icon {
+    width: 13px;
+    height: 13px;
+    background: transparent;
     pointer-events: none;
 }
 
-.cross-icon::before {
-    transform: rotate(90deg);
-}
-
-.cross-close {
+.icon.close {
     transform: rotate(45deg);
 }
 
-.points-icon, .points-icon::before, .points-icon::after {
-    content: "";
-    width: 4px;
-    height: 4px;
-    background: #7F7F7F;
-    border-radius: 50%;
-    position: absolute;
-    pointer-events: none;
-    transition: all 0.4s ease;
-}
-
-.points-icon::before {
-    right: 6px;
-}
-
-.points-icon::after {
-    right: -6px;
-}
-
-.done-icon {
-    width: 3px;
-    height: 14px;
-    background: #7F7F7F;
-    transform: rotate(40deg);
-    position: absolute;
-    border-radius: 10px;
-    pointer-events: none;
-}
-
-.done-icon::before {
-    content: "";
-    width: 3px;
-    height: 6px;
-    background: #7F7F7F;
-    position: absolute;
-    bottom: -1.5px;
-    left: -2px;
-    transform: rotate(-70deg);
-    border-radius: 10px;
-    pointer-events: none;
-}
-
-.task-done::before {
-    content: "";
-    width: 3px;
-    height: 14px;
-    background: #7F7F7F;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 10px;
-    pointer-events: none;
-    transform: rotate(-80deg);
-}
-
-.edit-icon {
-    width: 4px;
-    height: 8px;
-    background: #7F7F7F;
-    position: absolute;
-    transform: rotate(40deg);
-    pointer-events: none;
-}
-
-.edit-icon::before {
-    content: "";
-    width: 4px;
-    height: 4px;
-    position: absolute;
-    top: -5.5px;
-    background: #7F7F7F;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    pointer-events: none;
-}
-
-.edit-icon::after {
-    content: "";
-    position: absolute;
-    bottom: -5.2px;
-    left: 0;
-    border-top: 4px solid #7F7F7F;
-    border-left: 2px solid transparent;
-    border-right: 2px solid transparent;
-    pointer-events: none;
+.icon.big {
+    width: 16px;
+    height: 16px;
 }
 
 /* Header */
@@ -383,10 +294,11 @@ body {
     max-height: 120px;
 }
 
-.task-form > button {
-    display: block;
-    margin-left: auto;
-    font-size: 1.3em;
+.form-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
 }
 
 /* Footer */

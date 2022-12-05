@@ -5,13 +5,15 @@
                 <h2 class="<%= item.state === 'C' ? 'task-completed' : '' %>" ><%= item.title %></h2>
                 <div class="task-actions">
                     <div class="btn bg-gray" id="check-btn" data-id="<%= item.rowid %>" data-state="<%= item.state %>">
-                        <i class="done-icon <%= item.state !== 'C' ? '' : 'task-done' %>"></i>
+                       <img src="<%= item.state === 'C' ? '/static/img/icon-close.png' : '/static/img/icon-done.png' %>" class="icon" alt="done">
                     </div>
                     <div class="btn bg-gray" id="edit-btn">
-                        <i class="edit-icon"></i>
+                        <a href="/app/update-task/<%= item.rowid %>">
+                            <img src="/static/img/icon-pencil.png" class="icon" alt="edit">
+                        </a>
                     </div>
                     <div class="btn bg-gray" id="points-btn">
-                        <i class="points-icon"></i>
+                        <img src="/static/img/icon-elipsis.png" class="icon" alt="elipsis">
                     </div>
                 </div>
      

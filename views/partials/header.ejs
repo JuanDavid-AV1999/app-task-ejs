@@ -1,9 +1,7 @@
 <nav class="nav-main block-container">
     <p class="nav-brand"><%= title %></p>
-    <% if(showBtn) { %>
-        <% const url = showBtn === 'created' ? '/app/create-task' : '/app/' %>
-        <a href="<%= url %>" class="btn <%= showBtn !== 'close' ? 'bg-primary' : 'bg-secondary' %>">
-            <i class="cross-icon <%= showBtn === 'close' ? 'cross-close' : '' %>"></i>
-        </a>
-    <% } %>
+    <% const isLoad = action === 'load' ? true : false %>
+    <a href="<%= isLoad ? '/app/create-task' : '/app/' %>" class="btn <%= isLoad ? 'bg-primary' : 'bg-secondary' %>">
+        <img class="icon <%= isLoad ? '' : 'close' %>" src="/static/img/icon-plus.png" alt="plus">
+    </a>
 </nav>

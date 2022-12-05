@@ -1,0 +1,36 @@
+<section>
+    <% 
+        let id = '';
+        let title = '';
+        let description = '';
+
+        if(typeof payload !== 'undefined') {
+            id = payload.rowid;
+            title = payload.title;
+            description = payload.description;
+        }
+    %>
+    <form action="" method="" class="task-form" id="create-form">
+        <input type="hidden" value="<%= id %>" id="task-field" name="id">
+        <div class="form-control">
+            <label for="task-title">Task Title:</label>
+            <input type="text" name="title" id="task-field" required value="<%= title %>">
+            <span></span>
+        </div>
+        <div class="form-control area">
+            <label for="task-description">Description:</label>
+            <textarea name="description" id="task-field" required><%= description %></textarea>
+            <span></span>
+        </div>
+        <div class="form-actions" id="formActions">
+            <button class="btn bg-primary" data-action="<%= action %>">
+                <img class="icon big" src="<%= action === 'update' ? '/static/img/icon-pencil-white.png' : '/static/img/icon-plus.png' %>" alt="action">
+            </button>
+            <% if(action === 'update') { %>
+                <button class="btn bg-secondary" data-action="delete">
+                    <img class="icon big" src="/static/img/icon-delete.png" alt="delete">
+                </button>
+            <% } %>
+        </div>
+    </form>
+</section>

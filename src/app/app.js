@@ -2,8 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const routes = require('../routes/app.routes');
+const { getBaseDir } = require('../helpers/index');
 const { notFoundMiddleware, errorHandlerMiddleware } = require('../middlewares/app.middlewares');
-const { getBaseDir } = require('../util/index');
 
 const app = express();
 

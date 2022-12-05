@@ -1,7 +1,9 @@
+const { httResponse } = require("../helpers");
+
 const notFoundMiddleware = (req, res, next) => {
     const { method, url } = req;
     if(req.header('Content-Type') === 'application/json') {
-        res.status(404).send({ isError: true, error: 404, errorMessage: `Not found resorce ${method} - '${url}' ` });
+        res.status(404).json(httResponse(404, `Not found resorce ${method} - '${url}'`, true));
     } else {
         res.status(404).render('pages/pageErrors', { errorCode: 404, errorMessage: `Not found resorce ${method} - '${url}' ` });
     }

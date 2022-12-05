@@ -1,4 +1,4 @@
-const server = require('./server/app');
+const server = require('./app/app');
 const { DBlisen } = require('./database/DBConnection');
 
 server.listen(server.get('port'), async () => {
