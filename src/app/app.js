@@ -15,7 +15,7 @@ app.set('views', path.join(getBaseDir(baseDir), 'views'));
 
 app.use(morgan('tiny'));
 app.use(express.json());
-app.use('/static', express.static(path.join(getBaseDir(baseDir), 'assets'), { etag: false }));
+app.use('/static', express.static(path.join(getBaseDir(baseDir), 'public'), { etag: false }));
 
 app.use('/app', routes);
 app.use(notFoundMiddleware);
